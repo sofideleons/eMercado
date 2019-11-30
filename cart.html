@@ -57,27 +57,136 @@
               </div>
           </div>
         </nav>
-    <main role="main">
-		<div class="container mt-5">
-			<div class="alert alert-danger" role="alert">
-				<h4 class="alert-heading">¡A trabajar! :)</h4>
-				<p>Esta sección corresponde a: 3era y 4ta. Entrega (Fecha: 20/10/2019 y 24/11/2019)</p>
-				<hr>
-				<p class="mb-0">Fijate en la letra qué debes hacer <a target="_blank" href="Letra.pdf">aquí</a>.</p>
-			</div>
-		</div>
-    </main>
-      <footer class="text-muted">
-        <div class="container">
-            <p>Este sitio forma parte de Programación Aplicada - JAP</p>
-            <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+   
+
+      
+        <main role="main">
+            <div class="container">
+                  <div class="text-center p-4">
+                    <h2>Carrito de compras</h2>
+                  </div>
+                  <div class="row justify-content-md-center">
+                    <div class="col-md-8 order-md-1">
+                      <h4 class="mb-3">Artículos a comprar</h4>
+                    </div>
+                  </div>
+                    <table class="table table-bordered table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center"> <br /> </th>
+                    <th class="text-center"> Nombre<br /> </th>
+                    <th class="text-center"> Costo<br /> </th>
+                    <th class="text-center"> Cantidad<br /> </th>
+                    <th class="text-center"> Subtotal<br /> </th>
+                  </tr>
+                </thead>
+            <tbody>
+          <tr>
+          
+            <td id= "articleSrc"></td>
+            <td id= "articleName"></td>
+            <td id= "articleUnitCost"></td>
+            <div class="form-group .col-sm-">
+            <td><input id= "articleCount" type="number"  class="form-control" size="4" maxlength="4" placeholder="" required="" min="1" ></td>
+          </div>
+          <div class="invalid-feedback">
+            Por favor selecciona la cantidad.
+          </div>
+            <td id= "articleSubtotal"></td>
+          </tr>
+          </tbody>
+          </table>
+                  </div>
+                  
+                 
+
+
+      <div class="container">
+         <div class="row justify-content-md-center">
+            <div class="col-md-8 order-md-1">
+               <h4 class="mb-3">Tipo de envío</h4>            
+                 <div class="d-block my-3">
+    
+        <div class="custom-control custom-radio"> 
+          <input id="goldradio" name="publicationType" type="radio" class="custom-control-input" checked="" required="">
+          <label class="custom-control-label" for="goldradio">Premium: 2 a 5 días (15%)</label>
+         
         </div>
-      </footer>
+        <div class="custom-control custom-radio">
+          <input id="premiumradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="premiumradio">Express: 5 a 8 (7%)</label>
+        </div>
+        <div class="custom-control custom-radio" id="shipping">
+          <input id="standardradio" name="publicationType" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="standardradio">Standard: 12 a 15 (5%)</label>
+        </div> 
+      </div>
+          <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Dirección de envío</h4>
+            <form class="needs-validation" id="address-info">
+              <div class="row"> 
+                <div class="col-md-6 mb-3">  
+                  <label>Calle</label>
+                  <input type="text" class="form-control" id="calle" placeholder="" value="" >
+                  <div class="invalid-feedback">
+                    Por favor ingresa una calle.
+                  </div>
+                  <label>Número</label>
+                  <input type="number" class="form-control" id="numero" placeholder="" value="" >
+                  <div class="invalid-feedback">
+                    Por favor ingresa un número.
+                  </div>
+                  <label>Esquina</label>
+                  <input type="text" class="form-control" id="esquina" placeholder="" value="" >
+                  <div class="invalid-feedback">
+                    Por favor ingresa una esquina.
+                  </div>
+          
+            
+                    </div>
+                 </div>
+          </div>
+               
+        <hr class="mb-4">
+              <h4 class="mb-3">Costos</h4>
+              <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Subtotal</h6>
+                      <small class="text-muted">Costo unitario del producto por cantidad</small>
+                    </div>
+                    <span class="text-muted" id="subtotalText"></span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Costo de envío</h6>
+                      <small class="text-muted">Según el tipo de envío</small>
+                    </div>
+                    <span class="text-muted" id="shippingText">-</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Total ($)</span>
+                    <strong id="totalText">-</strong>
+                  </li>
+                </ul>
+                <hr class="mb-4">
+                <h5 class="mb-3">Forma de pago</h5>
+                <span id="paymentType">No ha seleccionado</span>
+                  <button type="button" class="m-1 btn btn-link" data-toggle="modal" data-target="#contidionsModal">Seleccionar</button>
+               <hr class="mb-4">
+              <button class="btn btn-primary btn-lg" type="submit">Finalizar compra</button>
+          </div>
+        </div>
+      </div>
+      </main>
+
+
       <div class="modal fade" tabindex="-1" role="dialog" id="contidionsModal">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <h5 class="modal-title">Forma de pago</h5>
+              <form class="needs-validation" id="payment-info">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -94,28 +203,60 @@
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="shippingStreet">Número de tarjeta</label>
-                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="" >
+                      <input type="number" class="form-control" id="creditCardNumber" placeholder="" value="" >
                       <div class="invalid-feedback">
-                        Ingresa un número de tarjeta
+                        Ingresa un número de tarjeta válido (debe tener 13, 15 o 16 dígitos) 
                       </div>
                     </div>
                     <div class="col-md-4 mb-3">
                       <label for="shippingStreetNumber">Código de seg.</label>
-                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="" >
+                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="">
                       <div class="invalid-feedback">
-                        Ingresa el código de seguridad
+                        Ingresa un código de seguridad válido (debe tener 3 o 4 dígitos)
                       </div>
                     </div>
                   </div>
-                  <div class="row">
-                      <div class="col-md-6 mb-3">
-                        <label for="dueDate">Vencimiento (MM/AA)</label>
-                        <input type="text" class="form-control" id="dueDate" placeholder="" value="" >
-                        <div class="invalid-feedback">
-                          Ingresa la fecha de vencimiento
-                        </div>
-                      </div>
-                  </div>
+  
+                  <div class="form-group" id="dueDate">
+                    <label for="dueDate">Vencimiento</label>
+                    <br>
+                    <select>
+                        <option value="01">Enero</option>
+                        <option value="02">Febrero</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Mayo</option>
+                        <option value="06">Junio</option>
+                        <option value="07">Julio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                    </select>
+                    <select>
+                        <option value="20"> 2020</option>
+                        <option value="21"> 2021</option>
+                        <option value="22"> 2022</option>
+                        <option value="23"> 2023</option>
+                        <option value="24"> 2024</option>
+                        <option value="25"> 2025</option>
+                        <option value="26"> 2026</option>
+                        <option value="27"> 2027</option>
+                        <option value="28"> 2028</option>
+                        <option value="29"> 2029</option>
+                        <option value="30"> 2030</option>
+                        <option value="31"> 2031</option>
+                        <option value="32"> 2032</option>
+                        <option value="33"> 2033</option>
+                        <option value="34"> 2034</option>
+                        <option value="35"> 2035</option>
+                        <option value="36"> 2036</option>
+                    </select>
+</div>
+
+  
+
                   <div class="row">
                     <div class="custom-control custom-radio">
                       <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
@@ -126,13 +267,14 @@
                   <div class="row">
                     <div class="col-md-6 mb-3">
                       <label for="bankAccountNumber">Número de cuenta</label>
-                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="" >
+                      <input type="number" class="form-control" id="bankAccountNumber" placeholder="" value="">
                       <div class="invalid-feedback">
-                        Ingresa un número de cuenta
+                        Ingresa un número de cuenta válido (debe tener 14 dígitos)
                       </div>
                     </div>
               </div>
             </div>
+          </form>
             <div class="modal-footer">
               <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
             </div>
